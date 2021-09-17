@@ -48,9 +48,12 @@
   }
 
   .mobile-column {
-    grid-template-columns: repeat(
-        calc(var(--column-count) - 1),
-        calc(100% - 108px)
-      ) 100%;
+    grid-template-columns:
+      repeat(calc(var(--column-count) - 1), calc(100% - 108px))
+      100%;
+  }
+
+  .large-padding {
+    @apply px-20 !important;
   }
 }

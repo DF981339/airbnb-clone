@@ -29,6 +29,10 @@ export default function Home({ exploreData }) {
         />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        ></meta>
       </Head>
 
       {/* Header */}
@@ -36,7 +40,7 @@ export default function Home({ exploreData }) {
       {/* Banner */}
       <Banner />
       {/* Body */}
-      <main className="px-0 mobile-bp:px-10 logo-bp:px-20 mx-auto max-w-[1760px] w-full block">
+      <main className="px-0 mobile-bp:px-10 logo-bp:large-padding mx-auto max-w-[1760px] w-full block">
         {/* Explore Nearby Section */}
         <section className="my-6">
           <h2 className="text-[26px] search-bar-bp:text-[32px] font-semibold pb-5">

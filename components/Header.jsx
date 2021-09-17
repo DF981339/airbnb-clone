@@ -3,9 +3,9 @@ import { MenuIcon } from "@heroicons/react/outline";
 
 function Header() {
   return (
-    <header>
+    <header className="sticky top-0 z-50">
       {/* Desktop View */}
-      <div className="sticky top-0 z-50 bg-white shadow-md h-20 hidden mobile-bp:block">
+      <div className="bg-white shadow-md h-20 hidden mobile-bp:block">
         {/* Container */}
         <div className="mx-auto h-20 px-10 hidden mobile-bp:flex logo-bp:px-20 max-w-[1760px]">
           {/* Left Side */}
