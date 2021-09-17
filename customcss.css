@@ -1,0 +1,17 @@
+/* ./src/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .banner-height {
+    height: max(
+      550px,
+      min(85vh, calc(var(--hc-lg-height, 9) / var(--hc-lg-width, 16) * 100vw))
+    );
+  }
+
+  .content-padding {
+    padding-top: 191px !important;
+  }
+}

@@ -24,13 +24,11 @@ module.exports = {
       width: {
         75: "18.75rem",
       },
-      minWidth: {
-        search_bar_min_width: "348px",
-      },
       screens: {
+        "largest-bp": "1440px",
         "logo-bp": "1128px",
         "search-bar-bp": "950px",
-        "mobile-view": "744px",
+        "mobile-bp": "744px",
       },
       flex: {
         header: "0 1 140px",
