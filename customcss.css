@@ -14,4 +14,43 @@
   .content-padding {
     padding-top: 191px !important;
   }
+
+  .four-column {
+    @apply grid-cols-4 !important;
+    @apply grid-flow-row !important;
+  }
+
+  .hide-card:nth-child(n + 7) {
+    display: none;
+  }
+
+  .show-card:nth-child(n + 7) {
+    display: block !important;
+  }
+
+  .scroll {
+    scroll-snap-type: x mandatory;
+  }
+
+  .scroll-snap {
+    scroll-snap-align: start;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scroll-bar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scroll-bar-none {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .mobile-column {
+    grid-template-columns: repeat(
+        calc(var(--column-count) - 1),
+        calc(100% - 108px)
+      ) 100%;
+  }
 }
