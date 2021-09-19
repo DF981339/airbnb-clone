@@ -1,10 +1,13 @@
 import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import HorizontalScroll from "../components/HorizontalScroll";
+import MediumCard from "../components/MediumCard";
 import SmallCard from "../components/SmallCard";
 import { explore_data } from "../data/explore_data";
+import { live_data } from "../data/live_data";
 
-export default function Home({ exploreData }) {
+export default function Home({ exploreData, liveData }) {
   return (
     <div>
       <Head>
@@ -41,17 +44,17 @@ export default function Home({ exploreData }) {
       <Banner />
       {/* Body */}
       <main className="px-0 mobile-bp:px-10 logo-bp:large-padding mx-auto max-w-[1760px] w-full block">
-        {/* Explore Nearby Section */}
-        <section className="my-6">
-          <h2 className="text-[26px] search-bar-bp:text-[32px] font-semibold pb-5">
+        {/* Explore Nearby Section - Small Cards */}
+        <section className="my-6 -mx-3">
+          <h2 className="px-3 text-[26px] search-bar-bp:text-[32px] font-semibold pb-5">
             Explore nearby
           </h2>
           <div
             style={{ "--column-count": 4 }}
-            className="grid overflow-x-auto scroll-bar-none mobile-column gap-[12px] mobile-bp:gap-4 grid-rows-2 scroll grid-flow-col mobile-bp:grid-cols-3 logo-bp:four-column logo-bp:grid-flow-row"
+            className="p-3 grid overflow-x-auto scroll-bar-none mobile-column gap-[12px] mobile-bp:gap-4 grid-rows-2 scroll grid-flow-col mobile-bp:grid-cols-3 logo-bp:four-column logo-bp:grid-flow-row"
           >
             {exploreData?.map(({ id, img, location, distance }) => (
-              <div className="mobile-bp:hide-card logo-bp:show-card scroll-snap">
+              <div className="mobile-bp:hide-card logo-bp:show-card">
                 <SmallCard
                   key={id}
                   img={img}
@@ -62,6 +65,15 @@ export default function Home({ exploreData }) {
             ))}
           </div>
         </section>
+
+        {/* Live Anywhere Section - Medium Cards */}
+        <section className="relative my-10 -mx-3">
+          <h2 className="px-3 text-[26px] search-bar-bp:text-[32px] font-semibold pb-5">
+            Live anywhere
+          </h2>
+          <HorizontalScroll data={liveData} />
+        </section>
+        {/* Large Cards */}
       </main>
       {/* Footer */}
     </div>
@@ -75,6 +87,7 @@ export async function getStaticProps() {
   return {
     props: {
       exploreData: explore_data,
+      liveData: live_data,
     },
   };
 }

@@ -32,7 +32,7 @@
     scroll-snap-type: x mandatory;
   }
 
-  .scroll-snap {
+  .scroll:nth-child(n) {
     scroll-snap-align: start;
   }
 
@@ -55,5 +55,30 @@
 
   .large-padding {
     @apply px-20 !important;
+  }
+
+  .ul {
+    display: flex;
+    overflow: auto clip;
+    height: 100%;
+    list-style: none;
+    min-width: 100%;
+    scroll-snap-type: x mandatory;
+  }
+
+  .li {
+    border-style: solid;
+    border-color: transparent;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+  }
+
+  .hide {
+    display: none !important;
+  }
+
+  .show-grid {
+    display: grid !important;
   }
 }
