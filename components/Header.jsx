@@ -3,7 +3,7 @@ import { MenuIcon } from "@heroicons/react/outline";
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50 h-20">
       {/* Desktop View */}
       <div className="bg-white shadow-md h-20 hidden mobile-bp:block">
         {/* Container */}
@@ -86,7 +86,7 @@ function Header() {
       </div>
 
       {/* Mobile View */}
-      <div className="sticky top-0 z-50 flex bg-white shadow-md h-20 px-6 mobile-bp:hidden">
+      <div className="z-50 flex bg-white h-20 shadow-md px-6 mobile-bp:hidden">
         <div className="w-full bg-gray-100 my-3 rounded-full align-center">
           <input
             type="text"

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Banner from "../components/Banner";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import HorizontalScroll from "../components/HorizontalScroll";
 import LargeCard from "../components/LargeCard";
@@ -44,7 +45,7 @@ export default function Home({ exploreData, liveData }) {
       {/* Banner */}
       <Banner />
       {/* Body */}
-      <main className="px-0 mobile-bp:px-10 logo-bp:large-padding mx-auto max-w-[1760px] w-full block">
+      <main className="px-6 mobile-bp:px-10 logo-bp:large-padding mx-auto max-w-[1760px] w-full block">
         {/* Explore Nearby Section - Small Cards */}
         <section className="my-6 -mx-3">
           <h2 className="px-3 text-[26px] search-bar-bp:text-[32px] font-semibold pb-5">
@@ -78,7 +79,11 @@ export default function Home({ exploreData, liveData }) {
         {/* Large Cards */}
         <LargeCard />
       </main>
+
       {/* Footer */}
+      <div className="mt-15 bg-[#f7f7f7] border-t border-[#dddddd]">
+        <Footer />
+      </div>
     </div>
   );
 }
