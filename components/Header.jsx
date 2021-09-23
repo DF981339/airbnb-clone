@@ -1,17 +1,131 @@
+import { useState } from "react";
 import { SearchIcon } from "@heroicons/react/solid";
-import { MenuIcon } from "@heroicons/react/outline";
+import { MenuIcon, ChevronLeftIcon } from "@heroicons/react/outline";
+import { UsersIcon } from "@heroicons/react/solid";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import { DateRangePicker } from "react-date-range";
+import { useRouter } from "next/dist/client/router";
 
-function Header() {
+function Header({ placeholder }) {
+  const router = useRouter();
+
+  const [searchInput, setSearchInput] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [adultsNum, setAdultsNum] = useState(1);
+  const [childrenNum, setChildrenNum] = useState(0);
+  const [showBackButton, setShowBackButton] = useState(false);
+
+  const selectionRange = {
+    startDate: startDate,
+    endDate: endDate,
+    key: "selection",
+  };
+
+  const search = () => {
+    const guestsNum = Number(adultsNum) + Number(childrenNum);
+
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        numOfGuests: guestsNum,
+      },
+    });
+  };
+
+  const showBack = () => {
+    setShowBackButton(true);
+  };
+
+  const handleBack = () => {
+    router.push("/");
+    setShowBackButton(false);
+  };
+
+  const handleSelect = (ranges) => {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
+  };
+
+  const resetInput = () => {
+    setSearchInput("");
+  };
+
   return (
-    <header className="sticky top-0 z-50 h-20">
+    <header className="sticky top-0 z-30">
+      {/* Search Function */}
+      {searchInput && (
+        <div className="absolute flex justify-center mt-24 w-full bg-transparent">
+          <div className="mx-auto flex-col justify-center bg-white text-black rounded-3xl p-6 shadow-lg">
+            <DateRangePicker
+              ranges={[selectionRange]}
+              minDate={new Date()}
+              rangeColors={["#FF385C"]}
+              onChange={handleSelect}
+            />
+            <div className="px-5 flex justify-between">
+              <div className="p-3">Add guests</div>
+              <div className="bg-gray-100 p-3 rounded-full flex">
+                <UsersIcon className="h-5 my-auto mr-2" />
+                <h4>Adults</h4>
+                <input
+                  className="w-12 pl-3 outline-none bg-transparent text-[#FF385C] guests"
+                  value={adultsNum}
+                  onChange={(event) => setAdultsNum(event.target.value)}
+                  min={0}
+                  type="number"
+                />
+              </div>
+              <div className="bg-gray-100 p-3 rounded-full flex">
+                <UsersIcon className="h-5 my-auto mr-2" />
+                <h4>Children</h4>
+                <input
+                  className="w-12 pl-3 outline-none bg-transparent text-[#FF385C] guests"
+                  value={childrenNum}
+                  onChange={(event) => setChildrenNum(event.target.value)}
+                  min={0}
+                  type="number"
+                />
+              </div>
+            </div>
+
+            <div className="flex mt-6">
+              <div className="w-1/2 flex justify-center">
+                <button
+                  className="bg-gray-100 text-[gray] rounded-full px-6 py-2"
+                  onClick={resetInput}
+                >
+                  Cancel
+                </button>
+              </div>
+              <div className="w-1/2 flex justify-center">
+                <button
+                  onClick={search}
+                  className="bg-[#FF385C] text-white rounded-full px-6 py-2"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Desktop View */}
-      <div className="bg-white shadow-md h-20 hidden mobile-bp:block">
+      <div className="bg-white shadow-md hidden mobile-bp:block">
         {/* Container */}
-        <div className="mx-auto h-20 px-10 hidden mobile-bp:flex logo-bp:px-20 max-w-[1760px]">
+        <div className="mx-auto px-10 py-4 hidden mobile-bp:flex logo-bp:px-20 max-w-[1760px]">
           {/* Left Side */}
-          <div className="flex search-bar-bp:flex-header search-bar-bp:flex-grow items-center h-full">
+          <div className="flex my-2 search-bar-bp:flex-header search-bar-bp:flex-grow items-center h-full">
             {/* Long Logo */}
-            <div className="hidden logo-bp:inline-flex">
+            <div
+              onClick={() => router.push("/")}
+              className="hidden logo-bp:inline-flex"
+            >
               <svg
                 width={102}
                 height={32}
@@ -22,7 +136,7 @@ function Header() {
               </svg>
             </div>
             {/* Short Logo */}
-            <div className="logo-bp:hidden">
+            <div onClick={() => router.push("/")} className="logo-bp:hidden">
               <svg
                 width={30}
                 height={32}
@@ -35,12 +149,14 @@ function Header() {
           </div>
 
           {/* Middle - Search Bar */}
-          <div className="flex flex-shrink-0 justify-center items-center h-full px-6 w-[348px]">
+          <div className="relative flex flex-shrink-0 justify-center items-center h-full px-6 w-[348px]">
             {/* Search Bar Container */}
-            <div className="flex px-2 h-12 w-75 border rounded-full items-center shadow hover:shadow-md">
+            <div className="flex bg-white px-2 h-12 w-75 border rounded-full items-center shadow hover:shadow-md">
               <input
+                value={searchInput}
+                onChange={(event) => setSearchInput(event.target.value)}
                 type="text"
-                placeholder="Start your search"
+                placeholder={placeholder || "Start your search"}
                 className="flex-grow min-w-0 outline-none text-sm placeholder-black leading-5 font-normal px-4 overflow-ellipsis whitespace-nowrap overflow-hidden"
               />
               <SearchIcon
@@ -67,7 +183,7 @@ function Header() {
               </div>
 
               {/* User Section */}
-              <div className="flex flex-grow w-auto justify-end ml-2 p-1 border rounded-full cursor-pointer hover:shadow-md">
+              <div className="bg-white flex flex-grow w-auto justify-end ml-2 p-1 border rounded-full cursor-pointer hover:shadow-md">
                 {/* Menu Icon */}
                 <div className="flex pl-2 items-center">
                   <MenuIcon width={18} height={18} className="text-gray-700" />
@@ -87,11 +203,24 @@ function Header() {
 
       {/* Mobile View */}
       <div className="z-50 flex bg-white h-20 shadow-md px-6 mobile-bp:hidden">
+        {showBackButton && (
+          <div className="my-auto mr-3" onClick={handleBack}>
+            <ChevronLeftIcon
+              width={25}
+              height={25}
+              className="cursor-pointer"
+            />
+          </div>
+        )}
+
         <div className="w-full bg-gray-100 my-3 rounded-full align-center">
           <input
+            value={searchInput}
+            onChange={(event) => setSearchInput(event.target.value)}
             type="text"
-            placeholder="Where are you going?"
+            placeholder={placeholder || "Where are you going?"}
             className="flex w-full px-5 h-full bg-transparent outline-none"
+            onClick={showBack}
           />
         </div>
       </div>

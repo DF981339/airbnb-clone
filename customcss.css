@@ -177,4 +177,30 @@
       flex: 1 0 0%;
     }
   }
+
+  .guests::-webkit-inner-spin-button {
+    opacity: 1;
+  }
+
+  .tab-button {
+    @apply mx-1 px-4 py-2 border border-gray-300 rounded-full text-center shadow-md cursor-pointer hover:border-black active:scale-95 active:bg-gray-50 transition transform duration-100 ease-out;
+  }
+
+  ::-webkit-input-placeholder {
+    text-align: center;
+  }
+
+  :-moz-placeholder {
+    /* Firefox 18- */
+    text-align: center;
+  }
+
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    text-align: center;
+  }
+
+  :-ms-input-placeholder {
+    text-align: center;
+  }
 }
