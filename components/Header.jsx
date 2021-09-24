@@ -7,7 +7,7 @@ import "react-date-range/dist/theme/default.css";
 import { DateRangePicker } from "react-date-range";
 import { useRouter } from "next/dist/client/router";
 
-function Header({ placeholder }) {
+function Header({ placeholder, style }) {
   const router = useRouter();
 
   const [searchInput, setSearchInput] = useState("");
@@ -21,6 +21,14 @@ function Header({ placeholder }) {
     startDate: startDate,
     endDate: endDate,
     key: "selection",
+  };
+
+  const headerStyle = () => {
+    if (style) {
+      return "mx-auto px-10 py-4 hidden mobile-bp:flex logo-bp:px-20 max-w-[1760px]";
+    } else {
+      return "mx-auto px-6 py-4 hidden mobile-bp:flex";
+    }
   };
 
   const search = () => {
@@ -118,7 +126,7 @@ function Header({ placeholder }) {
       {/* Desktop View */}
       <div className="bg-white shadow-md hidden mobile-bp:block">
         {/* Container */}
-        <div className="mx-auto px-10 py-4 hidden mobile-bp:flex logo-bp:px-20 max-w-[1760px]">
+        <div className={headerStyle()}>
           {/* Left Side */}
           <div className="flex my-2 search-bar-bp:flex-header search-bar-bp:flex-grow items-center h-full">
             {/* Long Logo */}

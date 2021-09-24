@@ -13,7 +13,7 @@ export default function Home({ exploreData, liveData, discoverData }) {
   return (
     <div>
       {/* Header */}
-      <Header />
+      <Header style="homePage" />
 
       {/* Banner */}
       <Banner />

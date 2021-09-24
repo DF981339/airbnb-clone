@@ -133,7 +133,7 @@ function InfoCard({
                     <StarIcon className="h-5 w-5" fill="#FF385C" />
                   </span>
                   <span className="ml-1 font-medium">{star.toFixed(2)}</span>
-                  <span className="text-gray-400 ml-1">({review})</span>
+                  <span className="text-gray-400 ml-1">({review} reviews)</span>
                 </div>
 
                 {/* Total */}

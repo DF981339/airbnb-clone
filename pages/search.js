@@ -1,11 +1,17 @@
+import { useEffect } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useRouter } from "next/dist/client/router";
 import dayjs from "dayjs";
 import { stays_data } from "../data/stays_data";
 import InfoCard from "../components/InfoCard";
+import Map from "../components/Map";
 
 function Search({ searchResults }) {
+  useEffect(() => {
+    document.title = "Results";
+  }, []);
+
   const router = useRouter();
 
   const capitalizedLocation = (string) => {
@@ -53,8 +59,9 @@ function Search({ searchResults }) {
         }`}
       />
 
-      <div className="flex px-6 mobile-bp:px-10 logo-bp:large-padding mx-auto max-w-[1760px]">
-        <section className="flex-grow pt-14">
+      <div className="flex">
+        {/* Info */}
+        <section className="flex-grow pt-14 px-6 logo-bp:max-w-[840px]">
           <div className="text-xs font-light">
             300+ stays · {range} · {numOfGuests}
             {numOfGuests > 1 ? " guests" : " guest"}
@@ -111,7 +118,11 @@ function Search({ searchResults }) {
         </section>
 
         {/* Map */}
-        <section></section>
+        <section className="hidden logo-bp:inline-flex logo-bp:min-w-[600px] flex-grow relative">
+          <div className="sticky top-0 w-full h-screen -mt-20 pt-20 map-container">
+            <Map searchResults={searchResults} />
+          </div>
+        </section>
       </div>
 
       <div className="mt-15 bg-[#f7f7f7] border-t border-[#dddddd]">
