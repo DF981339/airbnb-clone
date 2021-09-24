@@ -149,15 +149,16 @@ function Header({ placeholder }) {
           </div>
 
           {/* Middle - Search Bar */}
-          <div className="relative flex flex-shrink-0 justify-center items-center h-full px-6 w-[348px]">
+          <div className="relative flex flex-shrink-0 justify-center items-center h-full px-6">
             {/* Search Bar Container */}
-            <div className="flex bg-white px-2 h-12 w-75 border rounded-full items-center shadow hover:shadow-md">
+            <div className="flex bg-white px-2 h-12 min-w-[300px] border rounded-full items-center shadow hover:shadow-md">
               <input
                 value={searchInput}
                 onChange={(event) => setSearchInput(event.target.value)}
                 type="text"
+                size={placeholder ? placeholder.length - 5 : 20}
                 placeholder={placeholder || "Start your search"}
-                className="flex-grow min-w-0 outline-none text-sm placeholder-black leading-5 font-normal px-4 overflow-ellipsis whitespace-nowrap overflow-hidden"
+                className="flex-grow min-w-0 outline-none text-sm placeholder-black leading-5 font-normal px-2 overflow-ellipsis whitespace-nowrap overflow-hidden"
               />
               <SearchIcon
                 width={32}
@@ -173,7 +174,7 @@ function Header({ placeholder }) {
             <div className="flex h-full items-center w-auto">
               {/* Become a host */}
               <div className="flex items-center h-10 p-3 text-sm cursor-pointer hover:bg-gray-100 hover:rounded-full">
-                <p>Become a host</p>
+                <p className="whitespace-nowrap">Become a host</p>
               </div>
               {/* Globe Icon */}
               <div className="flex items-center h-10 p-3 text-sm cursor-pointer hover:bg-gray-100 hover:rounded-full">

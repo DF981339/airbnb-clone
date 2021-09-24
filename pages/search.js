@@ -53,7 +53,7 @@ function Search({ searchResults }) {
         }`}
       />
 
-      <div className="flex px-6 mobile-bp:px-10 logo-bp:large-padding">
+      <div className="flex px-6 mobile-bp:px-10 logo-bp:large-padding mx-auto max-w-[1760px]">
         <section className="flex-grow pt-14">
           <div className="text-xs font-light">
             300+ stays · {range} · {numOfGuests}
@@ -72,6 +72,10 @@ function Search({ searchResults }) {
           </div>
           <div className="inline-flex mobile-bp:hidden -ml-2 mb-2 text-gray-600 whitespace-nowrap">
             <p className="tab-button">Filters</p>
+          </div>
+
+          <div className="flex justify-end font-light italic text-gray-400">
+            Mocking data are for demo purpose only
           </div>
 
           <div className="flex flex-col">

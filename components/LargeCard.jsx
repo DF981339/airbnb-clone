@@ -2,7 +2,7 @@ import Image from "next/image";
 function LargeCard() {
   return (
     <section>
-      <div className="relative cursor-pointer">
+      <div className="relative cursor-pointer hover:opacity-95 hover:shadow-lg">
         <picture>
           <source
             srcset="https://a0.muscache.com/im/pictures/2595054e-d1d9-4fde-8046-58d51fcb3164.jpg?im_w=1440 1x, https://a0.muscache.com/im/pictures/2595054e-d1d9-4fde-8046-58d51fcb3164.jpg?im_w=2560 2x"
