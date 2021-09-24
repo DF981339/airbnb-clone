@@ -4,9 +4,6 @@ import Header from "../components/Header";
 import HorizontalScroll from "../components/HorizontalScroll";
 import LargeCard from "../components/LargeCard";
 import SmallCard from "../components/SmallCard";
-import { discover_data } from "../data/discover_data";
-import { explore_data } from "../data/explore_data";
-import { live_data } from "../data/live_data";
 import Image from "next/image";
 
 export default function Home({ exploreData, liveData, discoverData }) {
@@ -98,13 +95,23 @@ export default function Home({ exploreData, liveData, discoverData }) {
 
 export async function getStaticProps() {
   // Fetch data from API endpoint
-  // const exploreData = await fetch("URL").then((res) => res.json());
+  const exploreData = await fetch(
+    `${process.env.hostname}api/getExploreData`
+  ).then((res) => res.json());
+
+  const liveData = await fetch(`${process.env.hostname}api/getLiveData`).then(
+    (res) => res.json()
+  );
+
+  const discoverData = await fetch(
+    `${process.env.hostname}api/getDiscoverData`
+  ).then((res) => res.json());
 
   return {
     props: {
-      exploreData: explore_data,
-      liveData: live_data,
-      discoverData: discover_data,
+      exploreData: exploreData,
+      liveData: liveData,
+      discoverData: discoverData,
     },
   };
 }

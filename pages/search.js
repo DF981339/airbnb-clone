@@ -3,7 +3,6 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useRouter } from "next/dist/client/router";
 import dayjs from "dayjs";
-import { stays_data } from "../data/stays_data";
 import InfoCard from "../components/InfoCard";
 import Map from "../components/Map";
 
@@ -136,11 +135,13 @@ export default Search;
 
 export async function getServerSideProps() {
   // Fetch data from API endpoint
-  // const searchResults = await fetch("URL").then((res) => res.json());
+  const searchResults = await fetch(
+    `${process.env.hostname}api/getStaysData`
+  ).then((res) => res.json());
 
   return {
     props: {
-      searchResults: stays_data,
+      searchResults: searchResults,
     },
   };
 }
