@@ -136,7 +136,7 @@ export default Search;
 export async function getServerSideProps() {
   // Fetch data from API endpoint
   const searchResults = await fetch(
-    `${process.env.hostname}api/getStaysData`
+    `${process.env.hostname}/api/getStaysData`
   ).then((res) => res.json());
 
   return {

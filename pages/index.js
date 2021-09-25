@@ -96,15 +96,15 @@ export default function Home({ exploreData, liveData, discoverData }) {
 export async function getStaticProps() {
   // Fetch data from API endpoint
   const exploreData = await fetch(
-    `${process.env.hostname}api/getExploreData`
+    `${process.env.hostname}/api/getExploreData`
   ).then((res) => res.json());
 
-  const liveData = await fetch(`${process.env.hostname}api/getLiveData`).then(
+  const liveData = await fetch(`${process.env.hostname}/api/getLiveData`).then(
     (res) => res.json()
   );
 
   const discoverData = await fetch(
-    `${process.env.hostname}api/getDiscoverData`
+    `${process.env.hostname}/api/getDiscoverData`
   ).then((res) => res.json());
 
   return {
