@@ -18,19 +18,19 @@
 
 ### This is the Airbnb look-alike home page in desktop view
 
-![airbnb-clone-home-desktop](https://github.com/DF981339/amazon-clone/blob/main/airbnb-clone-home-desktop.png)
+![airbnb-clone-home-desktop](https://github.com/DF981339/airbnb-clone/blob/main/airbnb-clone-home-desktop.png)
 
 ### This is the Airbnb look-alike home page in mobile view
 
-![airbnb-clone-home-mobile](https://github.com/DF981339/amazon-clone/blob/main/airbnb-clone-home-mobile.png)
+![airbnb-clone-home-mobile](https://github.com/DF981339/airbnb-clone/blob/main/airbnb-clone-home-mobile.png)
 
 ### This is the Airbnb look-alike results page with server side rendering in desktop view
 
-![airbnb-clone-results-desktop](https://github.com/DF981339/amazon-clone/blob/main/airbnb-clone-results-desktop.png)
+![airbnb-clone-results-desktop](https://github.com/DF981339/airbnb-clone/blob/main/airbnb-clone-results-desktop.png)
 
 ### This is the Airbnb look-alike results page with server side rendering in mobile view
 
-## ![airbnb-clone-results-mobile](https://github.com/DF981339/amazon-clone/blob/main/airbnb-clone-results-mobile.png)
+## ![airbnb-clone-results-mobile](https://github.com/DF981339/airbnb-clone/blob/main/airbnb-clone-results-mobile.png)
 
 ## What I would like to improve if I had more time
 
