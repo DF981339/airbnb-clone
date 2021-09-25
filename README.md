@@ -1,29 +1,43 @@
-# Next.js + Tailwind CSS Example
+# Airbnb-Clone
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+### Web app is hosted on Vercel: https://airbnb-clone-df981339.vercel.app/
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+---
 
-## Preview
+## Why and How I work on this project
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+#### I have learned some basics React already. Thus, I decided to give Next.js a try and level up my skills.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+#### Recently, I have seen a lot of people using Tailwind CSS. I also wanted to use it and compare it to Bootstrap.
 
-## Deploy your own
+#### In this project, I used `Next.js` for UI, static rendering, server side rendering. `Tailwind CSS` for styling. `Mapbox` for map functionality. Deployed on `Vercel`.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+---
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Some screenshots and words briefly show how this project looks like
 
-## How to use
+### This is the Airbnb look-alike home page in desktop view
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+![airbnb-clone-home-desktop](https://github.com/DF981339/amazon-clone/blob/main/airbnb-clone-home-desktop.png)
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+### This is the Airbnb look-alike home page in mobile view
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+![airbnb-clone-home-mobile](https://github.com/DF981339/amazon-clone/blob/main/airbnb-clone-home-mobile.png)
+
+### This is the Airbnb look-alike results page with server side rendering in desktop view
+
+![airbnb-clone-results-desktop](https://github.com/DF981339/amazon-clone/blob/main/airbnb-clone-results-desktop.png)
+
+### This is the Airbnb look-alike results page with server side rendering in mobile view
+
+## ![airbnb-clone-results-mobile](https://github.com/DF981339/amazon-clone/blob/main/airbnb-clone-results-mobile.png)
+
+## What I would like to improve if I had more time
+
+- Implement the header scrolling effect like Airbnb so that the header color change based on the scroll position
+- Implement the search bar style like Airbnb so the search bar change based on the user input or action
+- Have more mobile view design and functionality enabled
+- Fix the style of pictures of discover things to do section on big screen
+- Create more dummy data to be rendered in results list and implement filter function
+- Try to render map based on user's input and generate random location within a range, which makes it more real
+- Fix the map size when user adjusting the window size. Currently, refreshing is needed to make the resizing happen
