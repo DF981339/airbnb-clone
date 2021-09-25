@@ -5,6 +5,7 @@ import { useRouter } from "next/dist/client/router";
 import dayjs from "dayjs";
 import InfoCard from "../components/InfoCard";
 import Map from "../components/Map";
+import { stays_data } from "../data/stays_data";
 
 function Search({ searchResults }) {
   useEffect(() => {
@@ -135,13 +136,13 @@ export default Search;
 
 export async function getServerSideProps() {
   // Fetch data from API endpoint
-  const searchResults = await fetch(
-    `${process.env.hostname}/api/getStaysData`
-  ).then((res) => res.json());
+  // const searchResults = await fetch(
+  //   `${process.env.hostname}/api/getStaysData`
+  // ).then((res) => res.json());
 
   return {
     props: {
-      searchResults: searchResults,
+      searchResults: stays_data,
     },
   };
 }
