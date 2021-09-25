@@ -26,9 +26,13 @@
 
 ### This is the Airbnb look-alike results page with server side rendering in desktop view
 
+### (Results data are hard-coded in New York, only title and placeholder will dynamically change for now)
+
 ![airbnb-clone-results-desktop](https://github.com/DF981339/airbnb-clone/blob/main/airbnb-clone-results-desktop.png)
 
 ### This is the Airbnb look-alike results page with server side rendering in mobile view
+
+### (Results data are hard-coded in New York, only title and placeholder will dynamically change for now)
 
 ## ![airbnb-clone-results-mobile](https://github.com/DF981339/airbnb-clone/blob/main/airbnb-clone-results-mobile.png)
 
